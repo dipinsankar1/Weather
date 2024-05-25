@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;  // Importing the http package for maki
 import 'package:weather_app/model/weather_model.dart';  // Importing the Weather model from the weather app
 
 class WeatherProvider with ChangeNotifier {  // Defining a WeatherProvider class that extends ChangeNotifier for state management
-  String apiKey = 'USE YOUR WEATHER API KEY';  // Storing the API key for OpenWeatherMap
+  String apiKey = 'YOUR WEATHERMAP API KEY';  // Storing the API key for OpenWeatherMap
   bool isLoading = false;  // Boolean to track if data is currently being loaded
   bool isRequestError = false;  // Boolean to track if there was an error in the request
   Weather? weather;  // Variable to hold the current weather data

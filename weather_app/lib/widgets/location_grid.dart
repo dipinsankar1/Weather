@@ -30,42 +30,31 @@ class LocationGrid extends StatelessWidget {
                 image: DecorationImage(
                     image: AssetImage(locationData[index].backImage), fit: BoxFit.fill),
               ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.height * .24,
-                                child: Text(
-                                  locationData[index].name,
-                                  style: const TextStyle(color: Colors.black,fontSize: 22.0,fontWeight: FontWeight.bold),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: SizedBox(
+                                  width: 200,
+                                  child: Text(
+                                    locationData[index].name,
+                                    style: const TextStyle(color: Colors.black,fontSize: 22.0,fontWeight: FontWeight.bold),
+                                  ),
                                 ),
-                              ),
+                  ),
                               const SizedBox(width: 50.0,),
-                            Container(
-                                height: MediaQuery.of(context).size.height * .12,
-                                width: MediaQuery.of(context).size.height * .10,
+                              Container(
+                              height: 120,
+                              width: 85,
+                                // height: MediaQuery.of(context).size.height * .12,
+                                // width: MediaQuery.of(context).size.height * .10,
                                 decoration: BoxDecoration(
                     image: DecorationImage(
                     image: AssetImage(locationData[index].locationImage), fit: BoxFit.fill)
                               ),),
-                            ],
-                          ),
-                        
-                        ],
-                      ),
-                     
-                    ],
-                  ),
-                ),
+
+              ],),
+             
               ),
             ),
           );
