@@ -39,9 +39,25 @@ class LocationGrid extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text(
-                            locationData[index].name,
-                            style: const TextStyle(color: Colors.black),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                width: 200,
+                                child: Text(
+                                  locationData[index].name,
+                                  style: const TextStyle(color: Colors.black,fontSize: 22.0,fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              const SizedBox(width: 50.0,),
+                            Container(
+                                height: 100,
+                                width: 80,
+                                decoration: BoxDecoration(
+                    image: DecorationImage(
+                    image: AssetImage(locationData[index].locationImage), fit: BoxFit.fill)
+                              ),),
+                            ],
                           ),
                         
                         ],

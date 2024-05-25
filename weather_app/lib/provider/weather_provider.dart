@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/model/weather_model.dart';
@@ -10,7 +10,13 @@ class WeatherProvider with ChangeNotifier {
   String apiKey = 'f1a7ec159b18115d41e386b1ebda37bf';
   bool isLoading = false;
   bool isRequestError = false;
- Weather? weather;
+  Weather? weather;
+  String dateText = '';
+
+   getDate() {
+    final now = DateTime.now();
+    dateText = DateFormat('MMMMEEEEd').format(now);
+  }
 
 
  Future<void> getCurrentWeather(LatLng location) async {
@@ -29,20 +35,15 @@ class WeatherProvider with ChangeNotifier {
 
       weather = Weather.fromJson(extractedData);
 
-      print(isLoading);
-     
-      print('Fetched Weather for: ${weather?.city}/${weather?.countryCode}');
-
       } else {
          isLoading = false;
-          print(response.statusCode.toString());
+         isRequestError = true;
 
       }
      
      
 
     } catch (error) {
-      print(error);
       isLoading = false;
       isRequestError = true;
     }
