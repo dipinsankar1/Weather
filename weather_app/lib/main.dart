@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => WeatherProvider(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Climate Demo',
         theme: ThemeData(
            appBarTheme: const AppBarTheme(
             backgroundColor: Colors.white,

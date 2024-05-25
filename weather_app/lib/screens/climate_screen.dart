@@ -7,6 +7,7 @@ import 'package:weather_app/provider/weather_provider.dart';
 import 'package:weather_app/widgets/climate_container.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:weather_app/widgets/error_widget.dart';
 
 
 class ClimateScreen extends StatefulWidget {
@@ -44,7 +45,7 @@ class _ClimateScreenState extends State<ClimateScreen> {
             title:  Text(weatherProv.dateText,style: GoogleFonts.oswald(textStyle: const TextStyle(color: Colors.black,fontSize: 20.0,),),),
           ),
           body: SingleChildScrollView (
-            child: weatherProv.isLoading?  Center(
+            child: weatherProv.isRequestError?const ErrorScreen():weatherProv.isLoading?  Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,

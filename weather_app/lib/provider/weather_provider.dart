@@ -28,7 +28,8 @@ class WeatherProvider with ChangeNotifier {  // Defining a WeatherProvider class
       final response = await http.get(url);  // Making the HTTP GET request
       if(response.statusCode == 200) {  // Checking if the response status is OK
         final extractedData = json.decode(response.body) as Map<String, dynamic>;  // Decoding the JSON response
-        isLoading = false;  // Setting isLoading to false as loading is complete
+        isLoading = false; // Setting isLoading to false as loading is complete
+        isRequestError = false; 
         weather = Weather.fromJson(extractedData);  // Parsing the weather data into the Weather model
       } else {
         isLoading = false;  // Setting isLoading to false as loading is complete
