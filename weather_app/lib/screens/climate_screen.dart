@@ -75,8 +75,8 @@ class _ClimateScreenState extends State<ClimateScreen> {
                        const SizedBox(height: 15.0,),
                        // Displaying the weather image
                 SizedBox(
-                    height: MediaQuery.of(context).size.height * .20,
-                    width: MediaQuery.of(context).size.height * .20,
+                    height: MediaQuery.of(context).size.height * .14,
+                    width: MediaQuery.of(context).size.height * .14,
                     child: Image.asset(
                       getWeatherImage(weatherProv.weather?.weatherCategory ?? ''),
                       fit: BoxFit.cover,

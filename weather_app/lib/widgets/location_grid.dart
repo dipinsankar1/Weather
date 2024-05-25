@@ -43,7 +43,7 @@ class LocationGrid extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               SizedBox(
-                                width: 200,
+                                width: MediaQuery.of(context).size.height * .24,
                                 child: Text(
                                   locationData[index].name,
                                   style: const TextStyle(color: Colors.black,fontSize: 22.0,fontWeight: FontWeight.bold),
@@ -51,8 +51,8 @@ class LocationGrid extends StatelessWidget {
                               ),
                               const SizedBox(width: 50.0,),
                             Container(
-                                height: 100,
-                                width: 80,
+                                height: MediaQuery.of(context).size.height * .12,
+                                width: MediaQuery.of(context).size.height * .10,
                                 decoration: BoxDecoration(
                     image: DecorationImage(
                     image: AssetImage(locationData[index].locationImage), fit: BoxFit.fill)
