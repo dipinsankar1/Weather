@@ -10,7 +10,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 
 class ClimateScreen extends StatefulWidget {
-  final Location locationDatas; 
+  final Location locationDatas; // Declaring a final variable to hold location data
   const ClimateScreen({required this.locationDatas,super.key});
 
 
@@ -24,7 +24,7 @@ class _ClimateScreenState extends State<ClimateScreen> {
   void initState() {    
    
     super.initState();
-    requestWeather();
+    requestWeather(); // Requesting weather data when the state initializes
   }
 
    Future<void> requestWeather() async {
@@ -33,6 +33,7 @@ class _ClimateScreenState extends State<ClimateScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    // Using Consumer to listen to WeatherProvider changes
     return  Consumer<WeatherProvider>(
       builder: (context, weatherProv, _) {
         return Scaffold(
@@ -42,13 +43,14 @@ class _ClimateScreenState extends State<ClimateScreen> {
             centerTitle: true,
             title:  Text(weatherProv.dateText,style: GoogleFonts.oswald(textStyle: const TextStyle(color: Colors.black,fontSize: 20.0,),),),
           ),
-          body: SingleChildScrollView(
+          body: SingleChildScrollView (
             child: weatherProv.isLoading?  Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 120.0,),
+                  // Displaying a loading animation
                   LoadingAnimationWidget.beat(
                     color: Colors.blue,
                     size: 200,
@@ -71,19 +73,20 @@ class _ClimateScreenState extends State<ClimateScreen> {
                   ],
                 ),
                        const SizedBox(height: 15.0,),
+                       // Displaying the weather image
                 SizedBox(
-                    height: 140.0,
-                    width: 140.0,
+                    height: MediaQuery.of(context).size.height * .20,
+                    width: MediaQuery.of(context).size.height * .20,
                     child: Image.asset(
                       getWeatherImage(weatherProv.weather?.weatherCategory ?? ''),
                       fit: BoxFit.cover,
                     ),),
                         
                     Text('${weatherProv.weather?.temp.toStringAsFixed(0)}°',
-                    //style: GoogleFonts.lato(textStyle: const TextStyle(color: Colors.black,fontSize: 100.0,)),
                     style: const TextStyle(color: Colors.black,fontSize: 100.0,fontWeight: FontWeight.bold,),
                     ),
                     const SizedBox(height: 10.0,),
+                    // Displaying the weather description
                     Text('${weatherProv.weather?.description}',
                     style: GoogleFonts.oswald(textStyle: const TextStyle(color: Colors.black,fontSize: 20.0,)),
                     ),

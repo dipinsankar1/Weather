@@ -18,6 +18,13 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
+           appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.white,
+            iconTheme: IconThemeData(color: Colors.blue),
+            elevation: 0,
+          ),
+          scaffoldBackgroundColor: Colors.white,
+          primaryColor: Colors.blue,
           // This is the theme of your application.
           //
           // TRY THIS: Try running your application with "flutter run". You'll see

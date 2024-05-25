@@ -12,8 +12,8 @@ class ClimateContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 100,
+      width: MediaQuery.of(context).size.height * .12,
+      height: MediaQuery.of(context).size.height * .12,
       decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: kLightBlue,
@@ -23,7 +23,6 @@ class ClimateContainer extends StatelessWidget {
                               const SizedBox(height: 10.0,),
                                 Text(name,
                                  style: GoogleFonts.oswald(textStyle: const TextStyle(color: Colors.black,fontSize: 18.0,)),
-                                //style: TextStyle(color: Colors.black,fontSize: 18.0,fontWeight: FontWeight.normal,),
                                 ),
                                const SizedBox(height: 10.0,),
                                Text(value,
